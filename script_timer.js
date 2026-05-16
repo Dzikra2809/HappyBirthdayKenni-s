@@ -29,9 +29,9 @@ setInterval(() => {
 
 // NAVIGASI
 document.getElementById('prev').addEventListener('click', () => {
-  window.location.href = '../bookmark/index_bookmark.html';
+  window.location.href = 'index_bookmark.html';
 });
 
 document.getElementById('next').addEventListener('click', () => {
-  window.location.href = '../scrapbook/index_scrapbook.html';
+  window.location.href = 'index_scrapbook.html';
 });
