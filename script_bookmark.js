@@ -120,7 +120,7 @@ if (nextPageBtn) {
 
     // Jika di scrapbook, buka halaman scrapbook HTML
     if (!scrapbookMain.classList.contains('hidden')) {
-      window.location.href = '../timer/index_timer.html';
+      window.location.href = 'index_timer.html';
     }
   });
 }
