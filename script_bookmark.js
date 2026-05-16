@@ -111,12 +111,6 @@ if (prevPageBtn) {
   });
 }
 
-if (nextPageBtn) {
-  nextPageBtn.addEventListener('click', () => {
-    window.location.href = 'index_timer.html';
-  });
-}
-
 // tombol keyboard panah kiri/kanan
 window.addEventListener('keydown', (e) => {
   if (!scrapbookMain.classList.contains('hidden')) {
