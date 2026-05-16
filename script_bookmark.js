@@ -112,11 +112,9 @@ if (prevPageBtn) {
 
 if (nextPageBtn) {
   nextPageBtn.addEventListener('click', () => {
-    // Jika di envelope, buka scrapbook
-    if (!envelopeWrapper.classList.contains('hidden')) {
-      goToTimer();
-      return;
-    }
+    window.location.href = 'index_timer.html';
+  });
+}
 
     // Jika di scrapbook, buka halaman scrapbook HTML
     if (!timerMain.classList.contains('hidden')) {
