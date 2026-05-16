@@ -1,0 +1,292 @@
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  font-family: "Courier New", monospace;
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url('../the flower/jametss.png') center/cover no-repeat fixed;
+  filter: blur(12px) brightness(0.55);
+  transform: scale(1.03);
+  z-index: -2;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.45));
+  z-index: -1;
+}
+
+.slide {
+  width: min(95vw, 1200px);
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 32px;
+  box-shadow: 0 26px 90px rgba(0, 0, 0, 0.45);
+  padding: 0;
+  overflow: hidden;
+}
+
+.digital-clock {
+  width: min(92%, 980px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem 2.5rem;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 24px;
+  text-align: center;
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.digital-clock span {
+  font-variant-numeric: tabular-nums;
+}
+
+.digital-clock .time-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.digital-clock .time-block span {
+  display: inline-block;
+  min-width: 3rem;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+}
+
+.digital-clock .separator {
+  font-size: clamp(3rem, 6vw, 5rem);
+  opacity: 0.8;
+}
+
+.digital-clock .days {
+  width: 100%;
+  margin-top: 0.8rem;
+  font-size: clamp(1.1rem, 2vw, 2rem);
+  font-weight: 500;
+  color: #ff99cc;
+}
+
+@media (max-width: 900px) {
+  .slide {
+    aspect-ratio: 4 / 3;
+  }
+
+  .digital-clock {
+    padding: 1.5rem 1.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    min-height: auto;
+  }
+
+  .slide {
+    width: min(100vw, 1000px);
+    aspect-ratio: 5 / 4;
+  }
+
+  .digital-clock {
+    gap: 1rem;
+    padding: 1.2rem 1.5rem;
+  }
+
+  .digital-clock .time-block {
+    flex-wrap: wrap;
+  }
+
+  .digital-clock .time-block span,
+  .digital-clock .separator {
+    font-size: clamp(2.4rem, 8vw, 4rem);
+  }
+
+  .digital-clock .days {
+    font-size: 1.4rem;
+  }
+}
+
+/* =========================
+   GLOW ANIMATION CLOCK
+========================= */
+
+.digital-clock {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 25px rgba(255,255,255,0.05);
+  }
+
+  50% {
+    transform: scale(1.02);
+    box-shadow:
+      0 0 40px rgba(255,153,204,0.18);
+  }
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.floating-hearts {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.floating-hearts span {
+  position: absolute;
+  bottom: -50px;
+  color: rgba(255, 180, 210, 0.18);
+  font-size: clamp(1rem, 2vw, 2rem);
+  animation: floatUp linear infinite;
+}
+
+/* posisi random */
+.floating-hearts span:nth-child(1) {
+  left: 10%;
+  animation-duration: 10s;
+}
+
+.floating-hearts span:nth-child(2) {
+  left: 25%;
+  animation-duration: 15s;
+  font-size: 2rem;
+}
+
+.floating-hearts span:nth-child(3) {
+  left: 45%;
+  animation-duration: 12s;
+}
+
+.floating-hearts span:nth-child(4) {
+  left: 65%;
+  animation-duration: 18s;
+}
+
+.floating-hearts span:nth-child(5) {
+  left: 80%;
+  animation-duration: 11s;
+}
+
+.floating-hearts span:nth-child(6) {
+  left: 90%;
+  animation-duration: 16s;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* =========================
+   BLUR LIGHT EFFECT
+========================= */
+
+.blur-circle {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1;
+  animation: moveBlob 12s ease-in-out infinite;
+}
+
+.blur1 {
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 105, 180, 0.12);
+  top: 10%;
+  left: 10%;
+}
+
+.blur2 {
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 180, 220, 0.1);
+  bottom: 10%;
+  right: 10%;
+  animation-delay: -6s;
+}
+
+@keyframes moveBlob {
+  0%,100% {
+    transform: translate(0,0);
+  }
+
+  50% {
+    transform: translate(40px,-30px);
+  }
+}
+
+/* NAVIGATION */
+.nav {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+button {
+  background: rgb(255, 65, 201);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: rgb(91, 0, 67);
+}

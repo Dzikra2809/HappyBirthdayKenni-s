@@ -1,0 +1,326 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Segoe UI", sans-serif;
+  background-image: url(img/sevel.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-color: peachpuff;
+}
+
+/* SLIDE */
+.slide {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* SCRAPBOOK */
+#book {
+  width: 50vw;
+  height: 50vh;
+  position: absolute;
+  left: 25vw;
+  top: 25vh;
+  perspective: 75vw;
+}
+
+#book::before {
+  content: "";
+  width: 1%;
+  height: 100%;
+  background: #222;
+  position: absolute;
+  left: 49%;
+  top: 0;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.75);
+}
+
+.page {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 0;
+
+  transform-origin: 0% 50%;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+
+  z-index: 5;
+  cursor: pointer;
+
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.15);
+}
+
+.front,
+.back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  backface-visibility: hidden;
+
+  font-family: sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.front {
+  background: #fff;
+}
+
+.back {
+  background: #fff;
+  transform: rotateY(180deg);
+}
+
+.back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page .front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CHECKBOX */
+input {
+  display: none;
+}
+
+label {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  cursor: pointer;
+}
+
+/* FLIP EFFECT */
+input:checked + .page {
+  transform: rotateY(-180deg);
+}
+
+/* Z-INDEX */
+#five:checked + .page {
+  z-index: 5;
+}
+
+#four:checked + .page {
+  z-index: 4;
+}
+
+#three:checked + .page {
+  z-index: 3;
+}
+
+#two:checked + .page {
+  z-index: 2;
+}
+
+#one:checked + .page {
+  z-index: 1;
+}
+
+/* PAGE CUSTOM */
+#page1 .front {
+  background: radial-gradient(circle at 70% 50%, black 50%, #222 40%);
+  color: magenta;
+  font-size: 2vh;
+  letter-spacing: 1vh;
+  font-weight: bold;
+}
+
+#page5 .back {
+  background: radial-gradient(circle at 70% 50%, black 50%, #222 40%);
+  color: #FFB6D9;
+  font-size: 2vh;
+  letter-spacing: 1vh;
+  font-weight: bold;
+}
+
+/* NAVIGATION */
+.nav {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+button {
+  background: rgb(255, 65, 201);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: rgb(91, 0, 67);
+}
+
+/* FLOWERS DECORATION */
+.flowers-container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.flower {
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.8;
+  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 182, 193, 0.6));
+}
+
+.flower-1 {
+  top: 10%;
+  left: 10%;
+  animation: float 6s ease-in-out infinite, spin 8s linear infinite;
+  animation-delay: 0s;
+}
+
+.flower-2 {
+  top: 15%;
+  right: 12%;
+  animation: float 7s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.flower-3 {
+  top: 50%;
+  left: 5%;
+  animation: float 8s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.flower-4 {
+  top: 60%;
+  right: 8%;
+  animation: float 6.5s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+.flower-5 {
+  bottom: 20%;
+  left: 15%;
+  animation: float 7.5s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+.flower-6 {
+  bottom: 15%;
+  right: 15%;
+  animation: float 6s ease-in-out infinite, spin 10s linear infinite reverse;
+  animation-delay: 0.3s;
+}
+
+.flower-7 {
+  top: 25%;
+  left: 20%;
+  animation: float 7s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.flower-8 {
+  top: 70%;
+  right: 20%;
+  animation: float 8s ease-in-out infinite;
+  animation-delay: 0.7s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* MUSIC BUTTON */
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(5px);
+
+  border: none;
+  border-radius: 50%;
+
+  color: white;
+  font-size: 1.5rem;
+
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  #book {
+    width: 90vw;
+    height: 60vh;
+    left: 5vw;
+    top: 20vh;
+  }
+
+  .back {
+    font-size: 0.8rem;
+  }
+
+  button {
+    font-size: 1.2rem;
+    padding: 8px 14px;
+  }
+
+  .flower {
+    font-size: 2rem;
+  }
+}
