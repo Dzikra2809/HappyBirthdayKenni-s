@@ -101,6 +101,7 @@ if (prevBtn && nextBtn) {
 }
 
 // pasang event listener tombol navigasi page
+// pasang event listener tombol navigasi page
 if (prevPageBtn) {
   prevPageBtn.addEventListener('click', () => {
     // Jika di scrapbook, kembali ke envelope
@@ -114,6 +115,20 @@ if (nextPageBtn) {
   nextPageBtn.addEventListener('click', () => {
     window.location.href = 'index_timer.html';
   });
+}
+
+// tombol keyboard panah kiri/kanan
+window.addEventListener('keydown', (e) => {
+  if (!scrapbookMain.classList.contains('hidden')) {
+    if (e.key === 'ArrowLeft') {
+      dynamicSlideLeft();
+      e.preventDefault();
+    } else if (e.key === 'ArrowRight') {
+      dynamicSlideRight();
+      e.preventDefault();
+    }
+  }
+});
 }
 
     // Jika di scrapbook, buka halaman scrapbook HTML
