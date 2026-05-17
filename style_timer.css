@@ -26,7 +26,7 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background: url('../the flower/jametss.png') center/cover no-repeat fixed;
+  background: url('foto5.png') center/cover no-repeat fixed;
   filter: blur(12px) brightness(0.55);
   transform: scale(1.03);
   z-index: -2;
@@ -40,7 +40,7 @@ body::after {
   z-index: -1;
 }
 
-.slide {
+/* .slide {
   width: min(95vw, 1200px);
   aspect-ratio: 16 / 9;
   display: grid;
@@ -50,6 +50,18 @@ body::after {
   box-shadow: 0 26px 90px rgba(0, 0, 0, 0.45);
   padding: 0;
   overflow: hidden;
+} */
+
+.slide {
+  width: min(95vw, 1200px);
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  overflow: visible;
 }
 
 .digital-clock {
