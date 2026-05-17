@@ -20,8 +20,8 @@ body {
 .page-shell {
   width: min(1180px, 100%);
   min-height: 80vh;
-  background: #fddcc1;
-  border: 22px solid #6d1117;
+  background: #C0A06D;
+  border: 22px solid #B2643E;
   border-radius: 28px;
   display: flex;
   flex-direction: column;
