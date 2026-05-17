@@ -280,11 +280,19 @@ body::after {
 }
 
 /* NAVIGATION */
-.nav {
+/* .nav {
   position: absolute;
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
+} */
+
+.navpage {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
 }
 
 button {
